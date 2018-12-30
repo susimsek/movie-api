@@ -10,7 +10,7 @@ module.exports = () => {
     mongoose.connection.on('error', (err) => {
         console.log('MongoDB:Error', err);
     });
-
+    mongoose.set('useFindAndModify', false);
     mongoose.Promise = global.Promise;
 
 };
