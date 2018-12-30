@@ -120,14 +120,35 @@ router.get('/:director_id', (req, res) => {
     ]);
 
     promise.then((data) => {
-        if (!data) {
-            const message = 'The director was not found';
-            next({message: message, code: 999});
-        }
         res.json(data);
     }).catch((err) => {
         res.json(err);
     });
+
+});
+
+router.put('/:director_id', (req, res, next) => {
+    const director_id = req.params.director_id;
+    const promise = Director.findByIdAndUpdate(
+        director_id,
+        req.body,
+        {
+            new: true
+        }
+    );
+
+    promise.then((data) => {
+        if (data === null) {
+            const message = 'The director was not found';
+            next({message: message, code: 999});
+        } else {
+            res.json(data);
+        }
+
+
+    }).catch((err) => {
+        res.json(err);
+    })
 
 });
 
