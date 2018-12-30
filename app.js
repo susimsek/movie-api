@@ -14,6 +14,10 @@ const app = express();
 const db = require('./helper/db');
 db();
 
+//Config
+const config = require('./config');
+app.set('api_secret_key', config.api_secret_key);//Global olması için
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

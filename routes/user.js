@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 //Models
 const User = require('../models/User');
@@ -27,6 +28,46 @@ router.post('/register', (req, res) => {
         }).catch((err) => {
             res.json(err);
         });
+    });
+});
+
+router.post('/authenticate', (req, res) => {
+    const {username, password} = req.body;
+
+    const promise = User.findOne({username});
+
+    promise.then((user) => {
+        if (user === null) {
+            res.json({
+                status: false,
+                message: `Authentication failed, ${username} Not found.`
+            });
+        } else {
+            console.log(user.password);
+            bcrypt.compare(password, user.password).then((result) => {
+                if (!result) {
+                    res.json({
+                        status: false,
+                        message: `Authentication failed,wrong password.`
+                    });
+                } else {
+                    const payload = {
+                        username
+                    };
+                    const token = jwt.sign(payload, req.app.get('api_secret_key'), {
+                        expiresIn: 720 // 12 saat dakika cinsinden
+                    });
+                    res.json({
+                        status: true,
+                        token: token
+                    });
+                }
+            });
+
+        }
+
+    }).catch((err) => {
+        res.json(err);
     });
 });
 
