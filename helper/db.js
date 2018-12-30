@@ -11,4 +11,6 @@ module.exports = () => {
         console.log('MongoDB:Error', err);
     });
 
+    mongoose.Promise = global.Promise;
+
 };
