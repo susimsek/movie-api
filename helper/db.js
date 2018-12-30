@@ -11,6 +11,7 @@ module.exports = () => {
         console.log('MongoDB:Error', err);
     });
     mongoose.set('useFindAndModify', false);
+    mongoose.set('useCreateIndex', true);
     mongoose.Promise = global.Promise;
 
 };
