@@ -71,6 +71,29 @@ describe('/api/directors testi', () => {
 
     });
 
+    describe('/PUT/director_id directors', () => {
+        it('it should put a director', (done) => {
+            const director = {
+                name: 'ahmet1',
+                surname: 'sert1',
+                bio: 'ahmet sert kişisel bio1'
+            };
+            chai.request(server)
+                .put(`/api/directors/${directorId}`)
+                .send(director)
+                .set('x-access-token', token)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('name').eql(director.name);
+                    res.body.should.have.property('surname').eql(director.surname);
+                    res.body.should.have.property('bio').eql(director.bio);
+                    done();
+                });
+        });
+
+    });
+
 
 });
 
