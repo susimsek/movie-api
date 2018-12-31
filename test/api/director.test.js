@@ -33,6 +33,31 @@ describe('/api/directors testi', () => {
 
     });
 
+    describe('/POST Director', () => {
+        it('it should POST a director', (done) => {
+            const director = {
+                name: 'ahmet',
+                surname: 'sert',
+                bio: 'ahmet sert kişisel bio'
+            };
+            chai.request(server)
+                .post('/api/directors')
+                .send(director)
+                .set('x-access-token', token)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('name');
+                    res.body.should.have.property('surname');
+                    res.body.should.have.property('bio');
+                    directorId = res.body._id;
+                    done();
+                });
+        });
+
+    });
+
 
 });
+
 
