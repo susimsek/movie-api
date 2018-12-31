@@ -43,7 +43,6 @@ router.post('/authenticate', (req, res) => {
                 message: `Authentication failed, ${username} Not found.`
             });
         } else {
-            console.log(user.password);
             bcrypt.compare(password, user.password).then((result) => {
                 if (!result) {
                     res.json({
@@ -90,8 +89,6 @@ router.post('/validateToken', (req, res) => {
                     iat,
                     exp
                 });
-                console.log(decoded);
-                next();
             }
         });
     } else {
