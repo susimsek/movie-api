@@ -71,4 +71,35 @@ router.post('/authenticate', (req, res) => {
     });
 });
 
+
+router.post('/validateToken', (req, res) => {
+    const {token} = req.body;
+
+    if (token) {
+        jwt.verify(token, req.app.get('api_secret_key'), (err, decoded) => {
+            if (err) {
+                res.json({
+                    active: false,
+                    message: 'Failed to authenticate token.'
+                });
+            } else {
+                const {username, iat, exp} = decoded;
+                res.json({
+                    active: true,
+                    username,
+                    iat,
+                    exp
+                });
+                console.log(decoded);
+                next();
+            }
+        });
+    } else {
+        res.json({
+            active: false,
+            message: 'No token provided.'
+        });
+    }
+});
+
 module.exports = router;

@@ -1,24 +1,29 @@
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
 
 module.exports = (req, res, next) => {
+    const baseUrl = req.protocol + '://' + req.headers.host;
     const token = req.headers["x-access-token"] || req.body.token || req.query.token;
-    if (token) {
-        jwt.verify(token, req.app.get('api_secret_key'), (err, decoded) => {
-            if (err) {
-                res.json({
-                    status: false,
-                    message: 'Failed to authenticate token.'
-                });
-            } else {
-                req.decode = decoded;
-                console.log(decoded);
-                next();
-            }
-        });
-    } else {
-        res.json({
-            status: false,
-            message: 'No token provided.'
-        });
-    }
+
+    const promise = axios({
+        method: 'post',
+        url: `${baseUrl}/validateToken`,
+        data: {
+            token: token
+        }
+    });
+
+    promise.then(function (response) {
+        const {active} = response.data;
+        if (active) {
+            next();
+        } else {
+            res.json(response.data);
+        }
+
+    }).catch(function (error) {
+        res.json(error.toString());
+    });
+
+
 };
