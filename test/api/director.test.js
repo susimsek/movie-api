@@ -6,7 +6,7 @@ const server = require('../../app');
 
 chai.use(chaiHttp);
 
-let token, movieId;
+let token, directorId;
 
 describe('/api/directors testi', () => {
     before((done) => {
@@ -51,6 +51,20 @@ describe('/api/directors testi', () => {
                     res.body.should.have.property('surname');
                     res.body.should.have.property('bio');
                     directorId = res.body._id;
+                    done();
+                });
+        });
+
+    });
+
+    describe('/GET/director_id directors', () => {
+        it('it should GET a the director by the given id', (done) => {
+            chai.request(server)
+                .get(`/api/directors/${directorId}`)
+                .set('x-access-token', token)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('Array');
                     done();
                 });
         });
