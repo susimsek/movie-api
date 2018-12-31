@@ -1,0 +1,472 @@
+{
+  "info": {
+    "_postman_id": "7ea93fcb-7f12-4d14-a08d-a19790e30f3c",
+    "name": "movie-api",
+    "description": "Node JS Movie Api Restful Web Service ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "addMovie",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          },
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "title",
+              "value": "a5",
+              "type": "text"
+            },
+            {
+              "key": "imdb_score",
+              "value": "11",
+              "type": "text"
+            },
+            {
+              "key": "category",
+              "value": "suç",
+              "type": "text"
+            },
+            {
+              "key": "country",
+              "value": "turkey",
+              "type": "text"
+            },
+            {
+              "key": "year",
+              "value": "2000",
+              "type": "text"
+            },
+            {
+              "key": "director_id",
+              "value": "5c28e8a4173f5218c0ea2135",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "http://localhost:3000/api/movies",
+        "description": "NodeJS Rest Api-Add Movie Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "authenticateWithToken",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "admin",
+              "type": "text"
+            },
+            {
+              "key": "test",
+              "value": "5",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": "http://localhost:3000/authenticate",
+        "description": "NodeJS Rest Api-Authenticate With Token Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "validateToken",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjU0MDcyLCJleHAiOjE1NDYyNTQ3OTJ9.LBIwN7axdhhyuqVE888I8hrlUFqDwTSgAnXOmJvJ4V0",
+              "type": "text"
+            },
+            {
+              "key": "test",
+              "value": "5",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": "http://localhost:3000/validateToken",
+        "description": "NodeJS Rest Api-Validate Token Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "registerUser",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "admin",
+              "type": "text"
+            },
+            {
+              "key": "test",
+              "value": "5",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        },
+        "url": "http://localhost:3000/register",
+        "description": "NodeJS Rest Api-Register User Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "addDirector",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "name",
+              "value": "a122",
+              "type": "text"
+            },
+            {
+              "key": "surname",
+              "value": "2233b",
+              "type": "text"
+            },
+            {
+              "key": "bio",
+              "value": "lorem445555555556",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "http://localhost:3000/api/directors",
+        "description": "NodeJS Rest Api-Add Director Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "updateDirector",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "name",
+              "value": "godfather2",
+              "type": "text"
+            },
+            {
+              "key": "surname",
+              "value": "9",
+              "type": "text"
+            },
+            {
+              "key": "bio",
+              "value": "lorem",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "http://localhost:3000/api/directors/5c28e8a4173f5218c0ea2135",
+        "description": "NodeJS Rest Api-Update Director Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "updateMovie",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "title",
+              "value": "baba3",
+              "type": "text"
+            },
+            {
+              "key": "imdb_score",
+              "value": "9",
+              "type": "text"
+            },
+            {
+              "key": "category",
+              "value": "Komedi",
+              "type": "text"
+            },
+            {
+              "key": "country",
+              "value": "turkey",
+              "type": "text"
+            },
+            {
+              "key": "year",
+              "value": "1980",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "http://localhost:3000/api/movies/5c28e8f1173f5218c0ea2136",
+        "description": "NodeJS Rest Api-Update Movie Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "getMovieList",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:3000/api/movies",
+        "description": "NodeJS Rest Api-Get Movie List Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "getDirectorList",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:3000/api/directors",
+        "description": "NodeJS Rest Api-Get Director List Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "getMovieListBetweenYears",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:3000/api/movies/between/1995/1995",
+        "description": "NodeJS Rest Api-Get Movie List Between Start Year And End Year Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "getTop10MovieList",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:3000/api/movies/top10",
+        "description": "NodeJS Rest Api-Get Top 10 Movie List Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "getMovie",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:3000/api/movies/5c28c08edadbdd4525ad7342",
+        "description": "NodeJS Rest Api-Get Movie Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "getDirector",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:3000/api/directors/5c29361731619b5023c18710",
+        "description": "NodeJS Rest Api-Get Director Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "deleteMovie",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:3000/api/movies/5c28c08edadbdd4525ad7342",
+        "description": "NodeJS Rest Api-Delete Movie Endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "deleteDirector",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ2MjkzMjk1LCJleHAiOjE1NDYyOTQwMTV9.-NZLI7R0OSmK4Uciha1LgR5PIaWQvtcDhoCjr3cM1ko",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "http://localhost:3000/api/directors/5c28ec3e85f4c32178dddf71",
+        "description": "NodeJS Rest Api-Delete Director Endpoint"
+      },
+      "response": []
+    }
+  ]
+}
