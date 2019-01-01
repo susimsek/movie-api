@@ -46,7 +46,7 @@ describe('/api/movies testi', () => {
             chai.request(server)
                 .post('/api/movies')
                 .send(movie)
-                .set('x-access-token', 'ass')
+                .set('x-access-token', token)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
