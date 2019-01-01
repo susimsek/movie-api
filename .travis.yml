@@ -1,8 +1,8 @@
-  language:node_js
-  node_js:
+language: node_js
+node_js:
     - 8
-  before_install:
+before_install:
     - npm install
     - export NODE_ENV=production
-  script:
+script:
     - npm run test
